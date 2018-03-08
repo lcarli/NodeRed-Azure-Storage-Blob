@@ -142,7 +142,7 @@ module.exports = function (RED) {
         this.on('input', function (msg) {
             node.log('downloading blob');
             // Sending order to Azure Blob Storage
-            createContainer(clientContainerName);
+            createContainer(clientContainerName,clientAccountName,clientAccountKey);
             setStatus(statusEnum.sending);
             downloadBlob(clientContainerName, clientBlobName, msg.payload);   
         });
